@@ -1,0 +1,25 @@
+services:
+    kuskow.pinglike.listener:
+        class: kuskow\pinglike\event\listener
+        arguments:
+            - '@controller.helper'
+            - '@user'
+        tags:
+            - { name: event.listener }
+
+    kuskow.pinglike.controller:
+        class: kuskow\pinglike\controller\main
+        arguments:
+            - '@dbal.conn'
+            - '@user'
+            - '@request'
+            - '@notification_manager'
+
+    kuskow.pinglike.notification.type.ping:
+        class: kuskow\pinglike\notification\type\ping
+        shared: false
+        parent: notification.type.base
+        calls:
+            - [set_user_loader, ['@user_loader']]
+        tags:
+            - { name: notification.type }

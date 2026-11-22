@@ -1,0 +1,21 @@
+{% if S_USER_LOGGED_IN %}
+<style>
+.post-buttons .pinglike-btn.is-liked,
+.post-buttons .pinglike-btn.is-liked:hover,
+.post-buttons .pinglike-btn.is-liked:focus,
+.post-buttons .pinglike-btn.is-liked:active {
+	cursor: default !important;
+	border-color: #a3c2db !important;
+	background-color: #eef5f9 !important;
+	background-image: linear-gradient(to bottom, #ffffff 0%, #e1ebf2 100%) !important;
+	box-shadow: none !important;
+}
+.post-buttons .pinglike-btn.is-liked .icon,
+.post-buttons .pinglike-btn.is-liked:hover .icon,
+.post-buttons .pinglike-btn.is-liked:focus .icon,
+.post-buttons .pinglike-btn.is-liked:active .icon {
+	color: {{ lang('PINGLIKE_ICON_COLOR') }} !important;
+}
+</style>
+{% INCLUDEJS '@kuskow_pinglike/js/pinglike.js' %}
+{% endif %}

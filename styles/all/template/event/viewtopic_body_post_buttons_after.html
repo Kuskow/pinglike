@@ -1,0 +1,7 @@
+{% if S_USER_LOGGED_IN and not postrow.S_POST_HIDDEN and postrow.U_PINGLIKE %}
+<li data-skip-responsive="true">
+	<a href="{{ postrow.U_PINGLIKE }}" title="{{ lang('PINGLIKE_BUTTON') }}" class="button button-icon-only pinglike-btn">
+		<i class="icon {{ lang('PINGLIKE_ICON') }} fa-fw" aria-hidden="true"></i><span class="sr-only">{{ lang('PINGLIKE_BUTTON') }}</span>
+	</a>
+</li>
+{% endif %}

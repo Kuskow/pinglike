@@ -1,0 +1,10 @@
+Subject: ⭐ Someone thanked you for your post
+
+Hello {USERNAME},
+
+{LIKER_NAME} liked your post “{POST_SUBJECT}” on “{SITENAME}”.
+
+You can view the post by clicking the following link:
+{U_POST}
+
+{EMAIL_SIG}

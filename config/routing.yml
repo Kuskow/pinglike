@@ -1,0 +1,5 @@
+kuskow_pinglike_send:
+    path: /pinglike/{post_id}
+    defaults: { _controller: kuskow.pinglike.controller:handle }
+    requirements:
+        post_id: \d+
