@@ -1,4 +1,4 @@
-{% if S_USER_LOGGED_IN %}
+{% if S_USER_LOGGED_IN and not S_IS_BOT %}
 <style>
 .post-buttons .pinglike-btn.is-liked,
 .post-buttons .pinglike-btn.is-liked:hover,

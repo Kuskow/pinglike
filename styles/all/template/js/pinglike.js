@@ -1,32 +1,21 @@
-document.addEventListener('click', function(e) {
-    const btn = e.target.closest('.pinglike-btn');
-    if (!btn) {
-        return;
-    }
+document.addEventListener('click', (e) => {
+	const btn = e.target.closest('.pinglike-btn');
+	if (!btn) return;
 
-    e.preventDefault();
+	e.preventDefault();
+	if (btn.dataset.liked) return;
 
-    if (btn.dataset.liked === '1') {
-        return;
-    }
+	btn.dataset.liked = '1';
+	btn.classList.add('is-liked');
 
-    btn.dataset.liked = '1';
-    btn.classList.add('is-liked');
+	const url = new URL(btn.href);
+	const hash = url.searchParams.get('hash') || '';
+	url.searchParams.delete('hash');
 
-    const urlObj = new URL(btn.href);
-    const hash = urlObj.searchParams.get('hash') || '';
-    urlObj.searchParams.delete('hash');
-
-    const bodyData = new URLSearchParams();
-    bodyData.append('hash', hash);
-
-    fetch(urlObj.toString(), {
-        method: 'POST',
-        body: bodyData,
-        credentials: 'same-origin',
-        headers: {
-            'X-Requested-With': 'XMLHttpRequest'
-        }
-    }).catch(() => {});
+	fetch(url, {
+		method: 'POST',
+		body: new URLSearchParams({ hash }),
+		headers: { 'X-Requested-With': 'XMLHttpRequest' }
+	}).catch(() => {});
 });
 

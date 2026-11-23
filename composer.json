@@ -2,8 +2,8 @@
     "name": "kuskow/pinglike",
     "type": "phpbb-extension",
     "description": "Кнопка Like с мгновенным уведомлением автору сообщения в колокольчик",
-    "version": "1.0.0",
-    "time": "2026-11-18",
+    "version": "1.0.1",
+    "time": "2026-11-23",
     "license": "GPL-2.0-only",
     "authors": [
         {

@@ -14,7 +14,7 @@ An extension for phpBB that adds a lightweight "Star / PingLike" button to posts
 * phpBB 3.3.0+ / PHP 7.2.0+
 
 ## Installation
-1. Download `kuskow_pinglike_1.0.0.zip` from [Releases](https://github.com).
+1. Download the latest release archive from [Releases](https://github.com/Kuskow/pinglike/releases).
 2. Extract and upload the `kuskow` folder to your board's `ext/` directory (`ext/kuskow/pinglike/composer.json`).
 3. Go to **ACP -> Customise -> Manage extensions** and click **Enable** under Disabled Extensions.
 
@@ -44,7 +44,7 @@ Edit `ext/kuskow/pinglike/language/en/common.php` (and `language/ru/common.php`)
 * phpBB 3.3.0+ / PHP 7.2.0+
 
 ## Установка и удаление
-1. **Установка:** скачайте релиз с [Releases](https://github.com), распакуйте в `ext/kuskow/pinglike/` и включите через **АСР -> Персонализация -> Управление расширениями**.
+1. **Установка:** скачайте релиз с [Releases](https://github.com/Kuskow/pinglike/releases), распакуйте в `ext/kuskow/pinglike/` и включите через **АСР -> Персонализация -> Управление расширениями**.
 2. **Настройка:** редактируйте файл `language/ru/common.php` (иконки и цвета), затем очистите кэш.
 3. **Удаление:** отключите и удалите данные через АСР, затем сотрите папку с сервера.
 

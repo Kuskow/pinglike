@@ -43,28 +43,17 @@ class listener implements EventSubscriberInterface
 
 	public function add_pinglike_url($event)
 	{
-		if ($this->user->data['user_id'] == ANONYMOUS)
+		if ($this->user->data['user_id'] == ANONYMOUS || $this->user->data['is_bot'] || $event['row']['user_id'] == ANONYMOUS)
 		{
 			return;
 		}
 
-		$row = $event['row'];
-		$poster_id = isset($row['user_id']) ? (int) $row['user_id'] : ANONYMOUS;
-
-		if ($poster_id == ANONYMOUS)
-		{
-			return;
-		}
-
+		$post_id = (int) $event['row']['post_id'];
 		$post_row = $event['post_row'];
-		$post_id = (int) $row['post_id'];
 
 		$post_row['U_PINGLIKE'] = $this->helper->route(
 			'kuskow_pinglike_send',
-			[
-				'post_id' => $post_id,
-				'hash'    => generate_link_hash('pinglike_' . $post_id),
-			],
+			['post_id' => $post_id, 'hash' => generate_link_hash('pinglike_' . $post_id)],
 			true,
 			false
 		);

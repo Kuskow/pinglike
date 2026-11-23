@@ -78,12 +78,12 @@ class ping extends \phpbb\notification\type\base
 
 	public function get_email_template_variables()
 	{
-		$liker_id = (int) $this->get_data('liker_id');
+		$user_data = $this->user_loader->get_user($this->get_data('liker_id'));
 		$real_post_id = (int) $this->get_data('real_post_id');
 
 		return [
-			'LIKER_NAME'   => htmlspecialchars_decode($this->user_loader->get_username($liker_id, 'username')),
-			'POST_SUBJECT' => htmlspecialchars_decode(censor_text($this->get_data('post_subject'))),
+			'LIKER_NAME'   => html_entity_decode($user_data['username'], ENT_COMPAT),
+			'POST_SUBJECT' => html_entity_decode(censor_text($this->get_data('post_subject')), ENT_COMPAT),
 			'U_POST'       => generate_board_url() . '/viewtopic.' . $this->php_ext . "?p={$real_post_id}#p{$real_post_id}",
 		];
 	}
